@@ -9,15 +9,15 @@ export default function DiaryEditor() {
 
   const onChangeInput = (e) => {
     setState({
+      ...state,
       author: e.target.value,
-      content: state.content,
     });
     console.log(e);
   };
 
   const onChangeContent = (e) => {
     setState({
-      author: state.author,
+      ...state,
       content: e.target.value,
     });
     console.log(e);
