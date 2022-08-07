@@ -2,25 +2,33 @@ import React from "react";
 import { useState } from "react";
 
 export default function DiaryEditor() {
-  const [author, setAuthor] = useState("");
-  const [content, setContent] = useState("");
+  const [state, setState] = useState({
+    author: "",
+    content: "",
+  });
 
   const onChangeInput = (e) => {
-    setAuthor(e.target.value);
+    setState({
+      author: e.target.value,
+      content: state.content,
+    });
     console.log(e);
   };
 
   const onChangeContent = (e) => {
-    setContent(e.target.value);
+    setState({
+      author: state.author,
+      content: e.target.value,
+    });
     console.log(e);
   };
   return (
     <div className="DiaryEditor">
       <h2>오늘의 일기</h2>
       <form>
-        <input type="text" value={author} onChange={onChangeInput} />
+        <input type="text" value={state.author} onChange={onChangeInput} />
         <div>
-          <textarea value={content} onChange={onChangeContent} />
+          <textarea value={state.content} onChange={onChangeContent} />
         </div>
       </form>
     </div>
