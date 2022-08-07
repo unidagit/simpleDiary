@@ -7,28 +7,48 @@ export default function DiaryEditor() {
     content: "",
   });
 
-  const onChangeInput = (e) => {
+  const handleChangeState = (e) => {
+    // console.log(e.target.name);
+    // console.log(e.target.value);
+
     setState({
       ...state,
-      author: e.target.value,
+      [e.target.name]: e.target.value,
     });
-    console.log(e);
   };
 
-  const onChangeContent = (e) => {
-    setState({
-      ...state,
-      content: e.target.value,
-    });
-    console.log(e);
-  };
+  // const onChangeInput = (e) => {
+  //   setState({
+  //     ...state,
+  //     author: e.target.value,
+  //   });
+  //   console.log(e);
+  // };
+
+  // const onChangeContent = (e) => {
+  //   setState({
+  //     ...state,
+  //     content: e.target.value,
+  //   });
+  //   console.log(e);
+  // };
+
   return (
     <div className="DiaryEditor">
       <h2>오늘의 일기</h2>
       <form>
-        <input type="text" value={state.author} onChange={onChangeInput} />
+        <input
+          name="author"
+          type="text"
+          value={state.author}
+          onChange={handleChangeState}
+        />
         <div>
-          <textarea value={state.content} onChange={onChangeContent} />
+          <textarea
+            name="content"
+            value={state.content}
+            onChange={handleChangeState}
+          />
         </div>
       </form>
     </div>
