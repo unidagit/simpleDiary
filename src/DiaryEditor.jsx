@@ -17,6 +17,11 @@ export default function DiaryEditor() {
     });
   };
 
+  const handleSubmit = (e) => {
+    console.log(state);
+    alert("저장성공");
+  };
+
   // const onChangeInput = (e) => {
   //   setState({
   //     ...state,
@@ -51,6 +56,7 @@ export default function DiaryEditor() {
           />
         </div>
         <div>
+          <span>오늘의 감정점수 </span>
           <select
             name="emotion"
             value={state.emotion}
@@ -62,6 +68,9 @@ export default function DiaryEditor() {
             <option value={4}>4</option>
             <option value={5}>5</option>
           </select>
+          <div>
+            <button onClick={handleSubmit}>일기 저장하기</button>
+          </div>
         </div>
       </form>
     </div>
