@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useRef } from "react";
 
-export default function DiaryEditor() {
+export default function DiaryEditor({ onCreate }) {
   const [state, setState] = useState({
     author: "",
     content: "",
@@ -31,7 +31,14 @@ export default function DiaryEditor() {
       alert("5글자 이상 입력해주세요");
       return;
     }
+    console.log(state);
+    onCreate(state.author, state.content, state.emotion);
     alert("저장성공");
+    setState({
+      author: "",
+      content: "",
+      emotion: 1,
+    });
   };
 
   // const onChangeInput = (e) => {
