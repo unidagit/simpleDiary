@@ -27,6 +27,14 @@ function App() {
     setData(newDiaryList);
   };
 
+  const onEdit = (targetId, newContent) => {
+    setData(
+      data.map((it) =>
+        it.id === targetId ? { ...it, content: newContent } : it
+      )
+    );
+  };
+
   return (
     <div className="App">
       <h2>일기장</h2>
@@ -34,7 +42,7 @@ function App() {
       <DiaryEditor onCreate={onCreate} />
 
       {/* 일기 리스트를 만들어  */}
-      <DiaryList diaryList={data} onDelete={onDelete} />
+      <DiaryList diaryList={data} onDelete={onDelete} onEdit={onEdit} />
     </div>
   );
 }
