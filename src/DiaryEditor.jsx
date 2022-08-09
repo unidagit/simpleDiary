@@ -5,14 +5,12 @@ export default function DiaryEditor({ onCreate }) {
   const [state, setState] = useState({
     author: "",
     content: "",
+    emotion: 1,
   });
   const authorInput = useRef();
   const contentInput = useRef();
 
   const handleChangeState = (e) => {
-    // console.log(e.target.name);
-    // console.log(e.target.value);
-    e.preventDefault();
     setState({
       ...state,
       [e.target.name]: e.target.value,
@@ -21,7 +19,6 @@ export default function DiaryEditor({ onCreate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (state.author.length < 1) {
       authorInput.current.focus();
       return;
@@ -31,7 +28,6 @@ export default function DiaryEditor({ onCreate }) {
       alert("5글자 이상 입력해주세요");
       return;
     }
-    console.log(state);
     onCreate(state.author, state.content, state.emotion);
     alert("저장성공");
     setState({
