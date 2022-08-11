@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import Lifecycle from "./Lifecycle";
 import "./App.css";
 import DiaryEditor from "./DiaryEditor";
 import DiaryList from "./DiaryList";
@@ -37,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>일기장</h2>
+      <Lifecycle />
       {/* 일기를 받아와 */}
       <DiaryEditor onCreate={onCreate} />
 
